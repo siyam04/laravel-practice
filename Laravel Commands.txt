@@ -1,0 +1,20 @@
+	
+htdocs\
+
+1. 	Create Project: composer create-project --prefer-dist laravel/laravel blog
+
+2. 	Run Server: php artisan serve
+
+3. 	include 'filename';
+		or
+   	require 'filename';
+
+4. 	app\ User.php = Model
+	resources\views\ welcome.blade.php = View
+	app\Http\Controllers\Controller.php = Controller
+	route\web.php = Route
+
+5. 	Creating MiddleWare: php artisan make:middleware MyName
+
+6.	app\Http\Kernel.php = Adding Custome MiddleWare
+	
