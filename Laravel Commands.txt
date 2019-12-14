@@ -5,7 +5,9 @@ htdocs\
 
 2. 	Run Server: php artisan serve
 
-3. 	include 'filename';
+3. 	use 'filename';
+		or
+	include 'filename';
 		or
    	require 'filename';
 
@@ -17,4 +19,49 @@ htdocs\
 5. 	Creating MiddleWare: php artisan make:middleware MyName
 
 6.	app\Http\Kernel.php = Adding Custome MiddleWare
+
+7. 	php artisan make:controller HelloController
+
+8. 	{{url('/home')}}, {{route('url_with_name')}}
 	
+9. 	@extends('base')
+	@include('')
+	@yield('content')
+	@section('content')
+	@endsection
+
+10. 	public folder = static folder
+
+11. 	{{asset('css/style.css')}} as like {% static 'css/style.css' %}
+	url( {{ asset('myfolder/img/myimage.png') }} )
+
+12. 	.env file = All settings (Database, Email, etc)
+
+13. 	php artisan make:migration create_MyTableNames_table --create=MyTableNames (table name always Plural)
+	php artisan migrate
+
+	php artisan migrate:rollback (previous undo)
+
+14. 	Two types of Data Post: Model and QueryBuilder. Model using is the best practice. Model= Rules, QueryBuilder=Custom
+
+15. 	get() = All data, first() = Single data 
+
+16. 	return view('blade_template_name', compact('query_variable_name'));
+
+17. 	@foreach($query_variable_name as random_name)
+		{{random_name->id}}
+		{{random_name->name}}
+		{{random_name->others}}
+	
+18. 	Route::get('single-object/{id}', Controller@method);
+
+	Template= <a href="{{ url('single-object' . random_name->id) }}"></a> #url always used for single object
+
+	public function method($id)
+	{
+		$query_variable = DB::table('table_name')->where('id', $id)->first();
+		
+		return response()->jason($query_variable);
+	}
+
+19. 

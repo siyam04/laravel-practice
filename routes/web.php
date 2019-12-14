@@ -13,11 +13,11 @@
 
 Route::get('/', function () {return view('welcome');});
 
-Route::get('home', function () {echo 'This is Home';});
+//Route::get('home', function () {echo 'This is Home';});
 
 Route::get('/about', function () {return view('about', ['data'=>'testing']);});
 
-Route::get('contact', function () {return view('pages.contact');})->middleware('age');
+Route::get('/contact', function () {return view('pages.contact');})->middleware('age');
 
 //group routing
 //Route::prefix('group')->group(function ()
@@ -27,11 +27,21 @@ Route::get('contact', function () {return view('pages.contact');})->middleware('
 //
 //});
 
-Route::group(['middleware' => 'age'], function () {
-    Route::get('about', function () {return view('about');});
-    Route::get('contact', function () {return view('pages.contact');});
-});
+//Route::group(['middleware' => 'age'], function () {
+//    Route::get('about', function () {return view('about');});
+//    Route::get('contact', function () {return view('pages.contact');});
+//});
 
+// new
+Route::get('/blog', 'HelloController@demo')->name('blog');
+// encryption
+//Route::get(md5('/blog'), 'HelloController@demo')->name('blog');
+
+Route::get('write/post', 'WritePostController@writePost')->name('write.post');
+
+// category CRUD
+Route::get('add/category', 'WritePostController@addCategory')->name('add.category');
+Route::post('store/category', 'WritePostController@storeCategory')->name('store.category');
 
 
 //Route::get($uri, $callback);
