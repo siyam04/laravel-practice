@@ -52,8 +52,11 @@ htdocs\
 		{{random_name->id}}
 		{{random_name->name}}
 		{{random_name->others}}
+	@endforeach
 	
-18. 	Route::get('single-object/{id}', Controller@method);
+18. 	SINGLE OBJECT:
+
+	Route::get('single-object/{id}', Controller@method);
 
 	Template= <a href="{{ url('single-object' . random_name->id) }}"></a> #url always used for single object
 
@@ -64,4 +67,15 @@ htdocs\
 		return response()->jason($query_variable);
 	}
 
-19. 
+19. 	DELETE OBJ:
+
+	$delete = DB::table('table_name')->where('id', $id)->delete();
+
+20.	@if, @else, @endif
+
+21. 	JOIN: 
+	
+	$var = DB::table('table_1')
+		->join('table_2', 'table_1.property', 'table_2.property')
+		->select('table_1.*', 'table_2.property1', 'table_2.property2')
+		->get();
